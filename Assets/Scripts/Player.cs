@@ -11,11 +11,13 @@ public class Player : MonoBehaviour
     //float _playerInputY;
     [Tooltip("Controla la fuerza de salto del PJ")]
     [SerializeField]float _jumpForce = 5;
+
+    SpriteRenderer spriterenderer;
     
 
     Rigidbody2D _rBody2D;
 
-    GroundSensor _sensor;
+    //GroundSensor _sensor;
 
     Animator _animator;
 
@@ -24,8 +26,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         _rBody2D = GetComponent<Rigidbody2D>();
-        _sensor = GetComponentInChildren<GroundSensor>();
+        //_sensor = GetComponentInChildren<GroundSensor>();
         _animator = GetComponentInChildren<Animator>();
+        spriterenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -33,7 +36,7 @@ public class Player : MonoBehaviour
     {
         PlayerMovement();
 
-        if(Input.GetButtonDown("Jump") && _sensor._isGrounded)
+        if(Input.GetButtonDown("Jump") && GroundSensor._isGrounded)
         {
             Jump();
             _animator.SetBool("IsJumping", true);
@@ -58,6 +61,14 @@ public class Player : MonoBehaviour
         if(_playerInputX == 0)
         {
             _animator.SetBool("IsRunning", false);
+        }
+        if(_playerInputX < 0)
+        {
+            spriterenderer.flipX = true;
+        }
+        if(_playerInputX > 0)
+        {
+            spriterenderer.flipX = false;
         }
         /*_playerInputY = Input.GetAxis("Vertical");
 
