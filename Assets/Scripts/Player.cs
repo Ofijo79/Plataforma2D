@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Player : MonoBehaviour
 {
@@ -12,14 +13,15 @@ public class Player : MonoBehaviour
     [Tooltip("Controla la fuerza de salto del PJ")]
     [SerializeField]float _jumpForce = 5;
 
-    SpriteRenderer spriterenderer;
-    
+    //SpriteRenderer spriterenderer;
+    [SerializeField] PlayableDirector _director;
 
     Rigidbody2D _rBody2D;
 
     //GroundSensor _sensor;
 
-    Animator _animator;
+    [SerializeField]Animator _animator;
+    
 
     
     // Start is called before the first frame update
@@ -27,8 +29,7 @@ public class Player : MonoBehaviour
     {
         _rBody2D = GetComponent<Rigidbody2D>();
         //_sensor = GetComponentInChildren<GroundSensor>();
-        _animator = GetComponentInChildren<Animator>();
-        spriterenderer = GetComponentInChildren<SpriteRenderer>();
+        //spriterenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -40,6 +41,10 @@ public class Player : MonoBehaviour
         {
             Jump();
             _animator.SetBool("IsJumping", true);
+        }
+        if(Input.GetButtonDown("Fire2"))
+        {
+            _director.Play();
         }
     }
 
@@ -64,11 +69,11 @@ public class Player : MonoBehaviour
         }
         if(_playerInputX < 0)
         {
-            spriterenderer.flipX = true;
+            transform.rotation = Quaternion.Euler(0,180,0);
         }
         if(_playerInputX > 0)
         {
-            spriterenderer.flipX = false;
+            transform.rotation = Quaternion.Euler(0,0,0);
         }
         /*_playerInputY = Input.GetAxis("Vertical");
 
