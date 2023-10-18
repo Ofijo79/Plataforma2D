@@ -21,11 +21,11 @@ public class Player : MonoBehaviour
     //GroundSensor _sensor;
 
     [SerializeField]Animator _animator;
-    
+     
 
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _rBody2D = GetComponent<Rigidbody2D>();
         //_sensor = GetComponentInChildren<GroundSensor>();
@@ -83,6 +83,11 @@ public class Player : MonoBehaviour
     void Jump()
     {
         _rBody2D.AddForce(Vector2.up *_jumpForce, ForceMode2D.Impulse);
+    }
+
+    public void SignalTest()
+    {
+        Debug.Log("Señal recibida");
     }
 }
 
