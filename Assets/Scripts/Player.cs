@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
         _rBody2D = GetComponent<Rigidbody2D>();
         //_sensor = GetComponentInChildren<GroundSensor>();
         //spriterenderer = GetComponentInChildren<SpriteRenderer>();
+
+        Debug.Log(GameManager.instance.vidas);
     }
 
     // Update is called once per frame
@@ -88,6 +90,11 @@ public class Player : MonoBehaviour
     public void SignalTest()
     {
         Debug.Log("Señal recibida");
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        GameManager.instance.GameOver();
     }
 }
 
