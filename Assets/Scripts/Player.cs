@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         {
             Jump();
             _animator.SetBool("IsJumping", true);
+            SoundManager.instance.JumpSFX();
         }
         if(Input.GetButtonDown("Fire2"))
         {
@@ -92,9 +93,12 @@ public class Player : MonoBehaviour
         Debug.Log("Señal recibida");
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        GameManager.instance.GameOver();
+        if(other.gameObject.layer == 7)
+        {
+            SoundManager.instance.GameOver();
+        } 
     }
 }
 
