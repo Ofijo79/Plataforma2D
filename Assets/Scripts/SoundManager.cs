@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip gameOver;
 
     public AudioClip jump;
+    public AudioClip getStar;
     // Start is called before the first frame update
     void Awake()
     {
@@ -33,6 +34,11 @@ public class SoundManager : MonoBehaviour
     public void JumpSFX()
     {
         source.PlayOneShot(jump);
+    }
+
+    public void GetStar()
+    {
+        source.PlayOneShot(getStar);
     }
     
 }

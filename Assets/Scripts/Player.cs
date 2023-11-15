@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         //_sensor = GetComponentInChildren<GroundSensor>();
         //spriterenderer = GetComponentInChildren<SpriteRenderer>();
 
-        Debug.Log(GameManager.instance.vidas);
+        //Debug.Log(GameManager.instance.vidas);
     }
 
     // Update is called once per frame
