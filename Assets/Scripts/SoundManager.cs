@@ -12,10 +12,16 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip jump;
     public AudioClip getStar;
+    public AudioClip bombExplosion;
+    public AudioClip menuMusic;
+    public AudioClip gameMusic;
     // Start is called before the first frame update
     void Awake()
     {
         source = GetComponent<AudioSource>();
+        source.clip = menuMusic;
+        source.clip = gameMusic;
+        source.Play();
         if(instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -41,4 +47,13 @@ public class SoundManager : MonoBehaviour
         source.PlayOneShot(getStar);
     }
     
+    public void BombExplosion()
+    {
+        source.PlayOneShot(bombExplosion);
+    }
+    
+    public void StopBGM()
+    {
+        source.Stop();
+    }
 }

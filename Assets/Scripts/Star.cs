@@ -5,6 +5,7 @@ using UnityEngine;
 public class Star : MonoBehaviour
 {
     SoundManager soundManager;
+    GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class Star : MonoBehaviour
         {
             Destroy(this.gameObject);
             soundManager.GetStar();
+            gameManager.AddStar();
         }    
     }
 }
