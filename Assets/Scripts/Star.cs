@@ -10,6 +10,7 @@ public class Star : MonoBehaviour
     void Start()
     {
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -18,7 +19,7 @@ public class Star : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D collision) 
+    public void OnTriggerEnter2D(Collider2D collision) 
     {
         if(collision.gameObject.tag == "Player")
         {

@@ -44,6 +44,4 @@ public class GameManager : MonoBehaviour
         score++;
         scoreText.text = "x" + score;
     }
-
-
 }

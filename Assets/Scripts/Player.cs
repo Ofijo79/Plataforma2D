@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class Player : MonoBehaviour
     //GroundSensor _sensor;
 
     [SerializeField]Animator _animator;
+    SoundManager soundManager;
+    GameManager gameManager;
      
 
     
@@ -28,6 +31,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         _rBody2D = GetComponent<Rigidbody2D>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         //_sensor = GetComponentInChildren<GroundSensor>();
         //spriterenderer = GetComponentInChildren<SpriteRenderer>();
 
@@ -98,6 +102,8 @@ public class Player : MonoBehaviour
         if(other.gameObject.layer == 7)
         {
             SoundManager.instance.GameOver();
+            //soundManager.StopBGM();
+            gameManager.GameOver();
         } 
     }
 }

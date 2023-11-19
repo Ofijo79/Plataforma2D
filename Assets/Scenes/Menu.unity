@@ -2375,6 +2375,7 @@ MonoBehaviour:
   getStar: {fileID: 0}
   bombExplosion: {fileID: 0}
   menuMusic: {fileID: 8300000, guid: 82cdf2a0cb91ec7458191de1a0a77a75, type: 3}
+  gameMusic: {fileID: 0}
 --- !u!82 &1543398936
 AudioSource:
   m_ObjectHideFlags: 0
