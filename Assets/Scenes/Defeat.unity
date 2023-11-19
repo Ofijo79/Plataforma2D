@@ -1589,7 +1589,8 @@ MonoBehaviour:
   jump: {fileID: 0}
   getStar: {fileID: 0}
   bombExplosion: {fileID: 0}
-  lvl1Music: {fileID: 0}
+  menuMusic: {fileID: 0}
+  gameMusic: {fileID: 0}
 --- !u!82 &1543398936
 AudioSource:
   m_ObjectHideFlags: 0
