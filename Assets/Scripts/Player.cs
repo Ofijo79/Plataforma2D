@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     [SerializeField]Animator _animator;
     SoundManager soundManager;
     GameManager gameManager;
-     
+    
 
     
     // Start is called before the first frame update

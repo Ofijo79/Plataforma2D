@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class MenuManagement : MonoBehaviour
 {
-
-    void Awake() 
-    {
-
-    }
     
     public void PlayGame()
     {

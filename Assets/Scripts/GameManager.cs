@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance {get; private set;}
 
-    public int vidas;
     public bool isGameOver;
     public int score;
     public Text scoreText;
