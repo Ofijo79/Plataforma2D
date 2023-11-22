@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour
 
     public int vidas;
     public bool isGameOver;
-    private int score;
+    public int score;
     public Text scoreText;
+    MenuManagement _menuManager;
     // Start is called before the first frame update
     void Awake()
     {
+        _menuManager = GameObject.Find("MenuManager").GetComponent<MenuManagement>();
         score = 0;
         if(instance != null && instance != this)
         {
@@ -23,6 +25,14 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
+        }
+    }
+
+    void Update()
+    {
+        if(score == 6)
+        {
+            _menuManager.Victory();
         }
     }
     
