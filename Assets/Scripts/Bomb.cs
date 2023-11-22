@@ -24,7 +24,7 @@ public class Bomb : MonoBehaviour
         
     }
 
-    public void Explosion()
+    /*public void Explosion()
     {
         Instiantate(efectoExplosion, transform.position, Quaternion.identity);
         Collider2D[] objetosIniciales = Physics2D.OverlapCircleAll(transform.position, radio);
@@ -34,7 +34,7 @@ public class Bomb : MonoBehaviour
             Character _personaje = colisionador.GetComponent<Character>();
             if(_personaje != null)
             {
-                
+
             }
         }
         
@@ -51,7 +51,7 @@ public class Bomb : MonoBehaviour
                 rb2D.AddForce(direccion * fuerzaFinal);
             }
         }
-    } 
+    } */
     void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.gameObject.tag == "Player")
